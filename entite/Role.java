@@ -15,6 +15,11 @@ public class Role {
     public Role() {
     }
 //*****************************//
+
+    public Role(int id_role) {
+        this.id_role = id_role;
+    }
+    
     public Role(int id_role, String desc_role) {
         this.id_role = id_role;
         this.desc_role = desc_role;
@@ -40,11 +45,9 @@ public class Role {
     public String toString() {
         return "Role{" + "id_role=" + id_role + ", desc_role=" + desc_role + '}';
     }
+   
     
-    
-    
-    
-    
+   
     
     
 }

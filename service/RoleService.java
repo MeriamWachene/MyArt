@@ -102,12 +102,12 @@ public class RoleService implements InterService <Role>{
     public Role readById(int Id_role) {
           Role r = new Role();
    try {
-       pst = conn.prepareStatement("select id_Role,desc_role from role where Id_role=?"); 
+       pst = conn.prepareStatement("select * from role where Id_role=?"); 
        pst.setInt(1, Id_role);
         rs =pst.executeQuery();
-        while (rs.next()) {
-      r.setId_role(rs.getInt("Id_role"));  
-        r.setDesc_role(rs.getString("desc_role"));
+        if (rs.next()) {
+      r.setId_role(rs.getInt(1));  
+        r.setDesc_role(rs.getString(2));
 		}
    } catch (SQLException ex) {
        Logger.getLogger(RoleService.class.getName()).log(Level.SEVERE, null, ex);
@@ -115,6 +115,18 @@ public class RoleService implements InterService <Role>{
    return r;
    
   }
- 
+    
    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
+    
+   

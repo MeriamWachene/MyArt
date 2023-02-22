@@ -6,6 +6,8 @@ package entite;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -23,16 +25,45 @@ public class User {
     private int tel_user;
     private String Img;
     private String adresse; 
-   
- 
     private Role Role;
+
+    public User(int id_user, String nom_user, String prenom_user,  String email, String pwd_user, String sexe, int tel_user, String Img, String adresse) {
+        this.id_user = id_user;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+       
+        this.email = email;
+        this.pwd_user = pwd_user;
+        this.sexe = sexe;
+        this.tel_user = tel_user;
+        this.Img = Img;
+        this.adresse = adresse;
+    }
+
+    public User(int id_user, String nom_user, String prenom_user, String email, String sexe, int tel_user, String Img) {
+        this.id_user = id_user;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.email = email;
+        this.sexe = sexe;
+        this.tel_user = tel_user;
+        this.Img = Img;
+    }
+  
    
   
    
    //******************************************************************************//
 
     public User() {
+        
     }
+
+    public User(int id_user) {
+        this.id_user = id_user;
+    }
+    
+    
    //******************************************************************************//
 
     public User(int id_user, String nom_user, String prenom_user, LocalDate date_naiss, String email, String pwd_user, String sexe, int tel_user, String Img, String adresse, Role role) {
@@ -48,7 +79,7 @@ public class User {
         this.adresse = adresse;
         this.Role = role;
     }
-//***********************************************//
+//********************************************************************************//
     public User(String nom_user, String prenom_user, LocalDate date_naiss, String email, String pwd_user, String sexe, int tel_user, String Img, String adresse, Role Role) {
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
@@ -82,9 +113,6 @@ public class User {
     }
 
  
-
-  
-
     public String getEmail() {
         return email;
     }
@@ -113,11 +141,7 @@ public class User {
         return Role;
     }
 
-   
-  
-   
-    
-//******************************************************************************//
+//*********************************************************************************//
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
@@ -134,9 +158,7 @@ public class User {
         this.date_naiss = date_naiss;
     }
 
-   
 
-  
 
     public void setEmail(String email) {
         this.email = email;
@@ -166,11 +188,7 @@ public class User {
         this.Role = Role;
     }
 
-   
-
-    
-
-   
+ 
     
 //******************************************************************************//
 
@@ -179,21 +197,33 @@ public class User {
         return "User{" + "id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", date_naiss=" + date_naiss + ", email=" + email + ", pwd_user=" + pwd_user + ", sexe=" + sexe + ", tel_user=" + tel_user + ", Img=" + Img + ", adresse=" + adresse + ", Role=" + Role + '}';
     }
 
-    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+//**************************************************************************************//
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (this.id_user != other.id_user) {
+            return false;
+        }
+        return Objects.equals(this.email, other.email);
+    }
 
-  
+ 
 
-   
-
-   
-
-
-   
-   
-   
-   
-   
-    
-    
-    
 }
+
+
+
